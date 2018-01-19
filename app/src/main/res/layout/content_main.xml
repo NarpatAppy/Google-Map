@@ -14,6 +14,14 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="match_parent"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+
+
+
+   </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,22 +38,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           >
+            >
 
             <Button
                 android:id="@+id/btnDriving"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
-                android:text="Driving Mode" />
+                android:text="Driving" />
+
             <Button
                 android:id="@+id/btnWalk"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Walking mode"/>
+                android:text="Walking" />
 
+            <Button
+                android:id="@+id/btnShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share it"
+                android:layout_weight="1"
+                android:onClick="shareShortDynamicLink"/>
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Logout"/>
 
         </LinearLayout>
 
