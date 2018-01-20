@@ -99,10 +99,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
             }
         };
-        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
-        Toast.makeText(this, "" + currentFirebaseUser.getUid(), Toast.LENGTH_SHORT).show();
-        Log.e("firebaseKey","=============================================================>"+currentFirebaseUser.getUid());
-
         //map
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         ShowDistanceDuration = findViewById(R.id.show_distance_time);
@@ -119,10 +115,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
     private void getDataFromFB() {
+        Log.e("FDError=","============================================>error");
+
+        //get user uid
+        String currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser().getUid() ;
+        Log.e("currentFirebaseUser","==================>>>>>>>>>>>>>>>>>>"+currentFirebaseUser);
         //firebase instance
         mFirebaseInstance = FirebaseDatabase.getInstance();
         //get reference to location node
-        mFirebaseDatabase = mFirebaseInstance.getReference("Location");
+        mFirebaseDatabase = mFirebaseInstance.getReference("Location").child(currentFirebaseUser);
 
         mapFragment.getMapAsync(this);
 
@@ -367,6 +368,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     //deep link
 
     private void deepLink() {
+        Log.e("deeeeeeeeep ","errorr=================================");
         FirebaseDynamicLinks.getInstance()
                 .getDynamicLink(getIntent())
                 .addOnSuccessListener(this, new OnSuccessListener<PendingDynamicLinkData>() {

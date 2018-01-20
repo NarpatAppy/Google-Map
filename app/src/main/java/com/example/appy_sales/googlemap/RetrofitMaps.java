@@ -15,7 +15,7 @@ public interface RetrofitMaps {
     * and our method will return the details
     * */
 
-    @GET("api/directions/json?key=AIzaSyD_DDpgX3OTH_wvcLUugdXvUN6QwNkrRvY")
+    @GET("api/directions/json?key=AIzaSyAET3ZJpSNzbP4kpl3wOQclgmePQrdb4Q8")
     Call<Example> getDistanceDuration(@Query("units") String units, @Query("origin") String origin, @Query("destination") String destination, @Query("mode") String mode);
 
 }
